@@ -53,6 +53,8 @@ class UnresolvedPartitionedAssetScheduleDefinition(NamedTuple):
         return ScheduleDefinition(
             job=resolved_job,
             name=self.name,
+            description=self.description,
+            default_status=self.default_status,
             execution_fn=_get_schedule_evaluation_fn(partitions_def, resolved_job, self.tags),
             execution_timezone=partitions_def.timezone,
             cron_schedule=cron_schedule,
